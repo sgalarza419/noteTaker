@@ -9,6 +9,15 @@ router.get("/notes", (req, res) => {
     .catch((err) => res.status(500).json(err));
 });
 
+router.post("/notes", (req, res) => {
+  // console.log("for req.body", req);
+  store
+    .addNote(req.body)
+    // res.json(true)
+    .then((notes) => res.json(notes))
+    .catch((err) => res.status(500).json(err));
+});
+
 // POST "/api/notes" 
 // Use addNote in the store object
 // YOUR CODE HERE
