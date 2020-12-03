@@ -26,11 +26,14 @@ router.post("/notes", (req, res) => {
 // Use removeNote method in the store object
 // YOUR CODE HERE
 
-router.delete("/notes", (req, res) => {
+router.delete("/notes/:id", (req, res) => {
   console.log("I am inside removeNote()");
+  id = req.params.id;
   store
-    .removeNote(req.params.id)
-    .then(() => res.json({ ok: true }))
+    .removeNote(id)
+    .then(() => res.json({
+      ok: true
+    }))
 });
 
 
